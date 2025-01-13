@@ -4,7 +4,6 @@ mod converters;
 
 // Import necessary dependencies
 use fltk::{prelude::*, *};
-use std::path::Path;
 use ui::components::ConverterUI;
 use converters::{length, volume};
 
@@ -17,13 +16,6 @@ fn main() {
     let mut wind = window::Window::default()
         .with_size(250, 300)
         .with_label("Unit Converter");
-    
-    // Attempt to load and set application icon
-    if let Ok(icon) = image::SvgImage::load(Path::new("src/icon.svg")) {
-        wind.set_icon(Some(icon));
-    } else {
-        eprintln!("Failed to load icon from src/icon.svg");
-    }
     
     // Initialize UI components
     let mut ui = ConverterUI::new();
